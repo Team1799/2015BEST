@@ -21,7 +21,7 @@ void WheelControl()
 		motor[WheelMotor] = wheelSpeed;
 	else if(vexRT[Btn6D] == 1)
 		motor[WheelMotor] = (wheelSpeed * (-1));
-	else
+	else if(vexRT[Btn5D] == 0 && vexRT[Btn5U] == 0)
 		motor[WheelMotor] = 0;
 }
 
@@ -34,11 +34,11 @@ motor[LeftMotor] = ((reversed ? -1 : 1) * vexRT[Ch3]);
 }
 
 void DumpControl(){
-	if (vexRT[Btn5U] == 1){
+	if (vexRT[Btn5U] == 1 && vexRT[Btn6D] == 0 && vexRT[Btn6U] == 0){
 		motor[DumpMotor] = dumpSpeed;
 		motor[WheelMotor] = (wheelSpeed);
 	}
-	else if(vexRT[Btn5D] == 1)
+	else if(vexRT[Btn5D] == 1 && vexRT[Btn6D] == 0 && vexRT[Btn6U] == 0)
 		motor[DumpMotor] = (dumpSpeed * (-1));
 	else{
 		motor[DumpMotor] = 0;
